@@ -14,12 +14,14 @@ installBtn.addEventListener("click", async () => {
     const { outcome } = await deferredPrompt.userChoice;
     console.log("Install choice:", outcome);
     deferredPrompt = null;
+  
   }
 });
 
 // Service worker registreren
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js")
+  navigator.serviceWorker.register("/pwa-app/sw.js")
     .then(() => console.log("Service Worker geregistreerd"))
     .catch(err => console.error("Service Worker fout:", err));
 }
+
